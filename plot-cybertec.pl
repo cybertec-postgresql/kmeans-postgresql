@@ -66,9 +66,11 @@ _SQL
 		system($plotcmd);
 	}
 	else{
-		my $plotcmd2 = 'gnuplot -e \' plot ' . join( ", ", @buf ) . '; exit\'';
-		system($plotcmd2);
-		#print $plotcmd2 . $/;
+		my $plotcmd2 = 'gnuplot -e \'plot ' . join( " ps 2, ", @buf ) . 'ps 2; pause -1\'';
+        print $plotcmd2 . $/;
+        return `$plotcmd2`;
+    #system($plotcmd2);
+	#print $plotcmd2 . $/;
 	}
 }
 
